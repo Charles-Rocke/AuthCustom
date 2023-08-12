@@ -1,11 +1,12 @@
 import AuthList from './AuthList'
+import Button from  "./Button"
 /**
  * Users card frontend
  * @component
  * @param {boolean} passkeyActive - This shows if user selected Passkey
  * @return {jsx} - Users card layout
  */
-function Card ({ passkeyActive, options }) {
+function Card ({ passkeyActive, googleActive }) {
   console.log(passkeyActive)
   return (
       // Default Layout
@@ -35,7 +36,10 @@ function Card ({ passkeyActive, options }) {
             aria-describedby="passwordHelpBlock"
           />
           {/* This displays Users card based off users choices */}
-          {(passkeyActive) ? <AuthList options={options} /> : ''}
+          {(passkeyActive) ? <button className="m-2">Login with Passkey</button> : ''}
+					<br/>
+					{(googleActive) ? <button className="m-2">Login with Google</button> : ''}
+					
         </div>
       </div>
   )
